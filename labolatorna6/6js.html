@@ -1,0 +1,75 @@
+<html>
+   <head> 
+     <title>Bookmark manager</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    </head>
+  <body>
+         <div class="container">
+           <h1> Bookmark Manager <h1>
+              <div class="row">
+               <div class="col-sm-12 col-md-8">
+         <table id="bookmarks" class="table">
+         	<tr>
+         		<th>ID</th>
+         		<th>Name</th>
+         		<th>Description</th>
+         		<th>Link</th>
+         		<th>Actions</th>
+         	</tr>
+         </table>
+        </div>
+        <div class="col-sm-12 col-md-4">
+        	<form id="addForm"
+        	<p><input type="text" name="name" id="nameInput" placeholder="Enter Name" required></p>
+        	<p><input type="text" name="desc" id="descInput" placeholder="Enter Description" required></p>
+        	<p><input type="text" name="link" id="linkInput" placeholder="Enter Link" required></p>
+        	<p><input type="hidden" name="id" id="idInput" value="0"> </p>
+        	<p><button id="sendData"> Send Data</button><p>
+        </form>
+                 </div>
+             </div>
+           </div>
+       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script> 
+         $(document).ready(function() {
+       var bookmarks = [{id:1, Name:"Google", Desk:"Search", Link:"https://www.google.com.ua"},
+       {id:2, Name:"YouTube", Desk:"Video", Link:"https://www.youtube.com"}];
+       
+       for (var i = 0; i < bookmarks.length; i++) {
+       
+  var element = "<tr><th>" + bookmarks[i].id + "</th>"+ 
+                "<th>" + bookmarks[i].Name + "</th>"+
+                "<th>" + bookmarks[i].Desk + "</th>"+
+                "<th> <a href='" + bookmarks[i].Link + "'>"+bookmarks[i].Link+"<th></th><th></th></th></tr>";
+        "<th><button class='del'>Delete</button></th></tr>";
+  
+  $("#bookmarks").append(element);
+}
+sendIN.onclick = function(event) {
+    bookmarks.push({id:4, Name:$("#nameIN").val(), Desk:$("#descIN").val(), Link:$("#linkIN").val()});
+  console.log(bookmarks.length);
+  var a = "<tr><th>" + bookmarks[i].id++ + "</th>"+ 
+                "<th>" + bookmarks[i].Name + "</th>"+
+                "<th>" + bookmarks[i].Desk + "</th>"+
+                "<th> <a href='" + bookmarks[i].Link + "'>"+bookmarks[i].Link+"</th>"+
+        "<th>   <button class='del'>Видалити</button></th>"+
+        "<th>  <button class='edit'>Редагувати</button></th>";
+  $("#bookmarks").append(a);}
+  
+  
+        $(document).on("click", ".del", function(e) {
+    bookmarks[i].id--
+            e.preventDefault();
+            $(this).closest('tr').remove();
+      
+        })
+    
+   $(document).on("click", ".edit", function(event) {
+     
+        });
+  }); 
+</script>
+</body>
+</html>
